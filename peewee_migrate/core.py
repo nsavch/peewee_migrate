@@ -65,7 +65,7 @@ class Router(object):
             sys.exit(1)
         except Exception:
             pass
-        create_model_tables([MigrateHistory], safe=True)
+        self.db.create_tables([MigrateHistory], safe=True)
 
     @property
     def fs_migrations(self):
