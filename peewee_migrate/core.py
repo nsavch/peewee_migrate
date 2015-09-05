@@ -60,7 +60,7 @@ class Router(object):
             assert self.db
             self.proxy.initialize(self.db)
             assert self.proxy.database
-            MigrateHistory.create_table(safe=True)
+            create_tables([MigrateHistory], safe=True)
         except (AttributeError, AssertionError):
             LOGGER.error("Invalid database: %s", self.db)
             sys.exit(1)
